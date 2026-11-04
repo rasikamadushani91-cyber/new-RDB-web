@@ -6,7 +6,7 @@
 
 /* ---------- Colour variables (use with var(--name)) ---------- */
 :root {
-    --navy: #0b1a7a;        /* main dark blue */
+    --navy: #060c36;        /* main dark blue */
     --navy-deep: #050a45;   /* very dark blue (footer) */
     --teal: #0a6b55;        /* green band colour */
     --mint: #8fe3c4;        /* light green (buttons) */
