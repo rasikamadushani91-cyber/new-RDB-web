@@ -1,142 +1,197 @@
+
 /* About page: brown accent + cream band */
-/* Colors */ :root
-{--brown:#7a5a3d;
- --cream:#f2ede6
+
+:root {
+    --brown: #7a5a3d;
+    --cream: #f2ede6;
 }
 
-/* Banner */ .page-banner{
-    background:var(--teal);
-    color:#fff;
-    text-align:center;
-    padding:38px 5%
+.page-banner {
+    background: var(--teal);
+    color: #fff;
+    text-align: center;
+    padding: 38px 5%;
 }
 
-
-/* Banner title */ .page-banner h1{
-    margin:0;font-size:clamp(28px,4vw,42px)
-}
-/* Section spacing */ .about-block,.related{padding:48px 5%}
-
-/* Center content */ .about-block>*,
-.related>*{max-width:1100px;
-    margin-left:auto;
-    margin-right:auto
+.page-banner h1 {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 42px);
 }
 
-/* Cream background */ .related{
-    background:var(--cream)
+.about-block,
+.related {
+    padding: 48px 5%;
 }
 
-/* Section heading */ 
-.section-title{
-    text-align:center;
-    text-transform:uppercase;
-    font-size:clamp(22px,3vw,32px);
-    margin:0 auto 30px;
-    color:#2b2622
+.about-block > *,
+.related > * {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-/* Brown line under heading */ 
-
-.section-title::after{
-    content:"";
-    display:block;
-    width:70px;
-    height:4px;
-    background:var(--brown);
-    margin:10px auto 0;
-    border-radius:2px
-}
-/* Intro text */ 
-.lead{
-    font-size:17px;
-    max-width:75ch;
-    text-align:left
-}
-/* 2 columns */
- .two-col{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:24px
+.related {
+    background: var(--cream);
 }
 
-/* Card box */
- .info-card,.officer{
-    background:#faf8f5;
-    border:1px solid #e6dfd6;
-    border-top:4px solid var(--brown);
-    border-radius:14px;
-    padding:22px 24px
-}
-/* Card title */
- .info-card h3{
-    margin:0 0 8px;
-    color:var(--brown);
-    font-size:20px
-}
-/* Card text */
- .info-card p,
- .officer p{
-    margin:0 0 8px;
-    color:#5a534c
-}
-/* Role text */
- .role{
-    font-weight:700;
-    color:#2b2622!important
-}
-/* 3 columns */
- .officer-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px
-}
-/* Officer name */
- .officer h3{
-    margin:0 0 4px;
-    font-size:17px;
-    color:#2b2622
-}
-/* Links */
- .officer a,
- .info-card a{
-
-    color:var(--brown);
-    word-break:break-all
+.section-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: clamp(22px, 3vw, 32px);
+    margin: 0 auto 30px;
+    color: #2b2622;
 }
 
-/* 4 columns */
- .org-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:24px
-}
-/* Org card */
- .org{background:#fff;
-    border-radius:12px;
-    border-bottom:4px solid var(--brown);padding:24px 16px;
-    text-align:center;
-    box-shadow:0 3px 10px #0000000d
-}
-/* Org logo */
- .org img{object-fit:contain;
-    margin-bottom:10px
+.section-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--brown);
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
-/* Org name */
- .org p{
-    margin:0;font-weight:600;
-    color:#2b2622
+.lead {
+    font-size: 17px;
+    max-width: 75ch;
+    text-align: left;
 }
 
-/* Tablet: 2 columns */
- @media (max-width:980px){
-    .officer-grid{grid-template-columns:repeat(2,1fr)}
-    .org-grid{grid-template-columns:repeat(2,1fr)}
-}
-/* Mobile: 1 column */ 
-@media (max-width:620px){
-    .two-col,.officer-grid,.org-grid{grid-template-columns:1fr}
+.two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
 }
 
+.info-card,
+.officer {
+    background: #faf8f5;
+    border: 1px solid #e6dfd6;
+    border-top: 4px solid var(--brown);
+    border-radius: 14px;
+    padding: 22px 24px;
+}
+
+.info-card h3 {
+    margin: 0 0 8px;
+    color: var(--brown);
+    font-size: 20px;
+}
+
+.info-card p,
+.officer p {
+    margin: 0 0 8px;
+    color: #5a534c;
+}
+
+.role {
+    font-weight: 700;
+    color: #2b2622 !important;
+}
+
+.officer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.officer h3 {
+    margin: 0 0 4px;
+    font-size: 17px;
+    color: #2b2622;
+}
+
+.officer a,
+.info-card a {
+    color: var(--brown);
+    word-break: break-all;
+}
+
+.org-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.org {
+    background: #fff;
+    border-radius: 12px;
+    border-bottom: 4px solid var(--brown);
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: 0 3px 10px #0000000d;
+}
+
+.org img {
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.org p {
+    margin: 0;
+    font-weight: 600;
+    color: #2b2622;
+}
+/* ==================================
+   OFFICER PROFILE
+   ================================== */
+
+.officer {
+    text-align: center;
+    padding: 0;               /* sections handle their own padding */
+    overflow: hidden;         /* keeps the colors inside the rounded corners */
+}
+
+/* Upper section (image) */
+.officer-top {
+    background-color: #ab9b61;   /* image section color - change as you like */
+    padding: 30px 20px 20px;
+}
+
+/* Lower section (text) */
+.officer-info {
+    background-color: #b6c2c7;   /* text section color - change as you like */
+    padding: 20px;
+}
+
+.officer-img {
+    width: 170px;             /* was 130px */
+    height: 170px;            /* was 130px */
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--brown);
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Officer image hover effect */
+.officer:hover .officer-img {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+
+@media (max-width: 980px) {
+    .officer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .org-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .two-col,
+    .officer-grid,
+    .org-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .officer-img {
+        width: 150px;        
+        height: 150px;
+    }
+}
