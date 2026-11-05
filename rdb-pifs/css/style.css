@@ -38,14 +38,16 @@ a {
    HEADER (top blue bar)
    ===================================================== */
 .site-header {
-    display: flex;              /* items in one row */
-    align-items: center;        /* centre vertically */
-    gap: 24px;                  /* space between items */
+    display: flex;
+    align-items: center;
+    gap: 24px;
     padding: 12px 5%;
     background: var(--navy);
     color: #fff;
-    position: relative;
-    z-index: 10;                /* stay above other content */
+    position: sticky;           /* stays at the top while scrolling */
+    top: 0;                     /* stick to the very top of the screen */
+    z-index: 100;               /* stay above all page content */
+    box-shadow: 0 2px 10px #0004;   /* soft shadow under the header (optional) */
 }
 
 /* Logo + name on the left */
