@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,242 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RDB-PIFS | District Summary</title>
 
-    <style>
-        /* =====================================================
-           PART 1: BASIC SETTINGS
-           ===================================================== */
-        * { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            font-family: "Segoe UI", system-ui, Arial, sans-serif;
-            background: #c4d0e0;           /* blue-grey page colour */
-            color: #0d0545;
-        }
-
-        /* =====================================================
-           PART 2: HEADER (the dark band at the top)
-           ===================================================== */
-        .site-header {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            min-height: 92px;
-            padding: 12px 5%;
-            background: #0d0545;           /* dark navy */
-            color: #fff;
-            position: sticky;              /* stays at the top when scrolling */
-            top: 0;
-            z-index: 100;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            white-space: nowrap;           /* keep RDB-PIFS on one line */
-            flex-shrink: 0;
-        }
-
-        .brand-logo {
-            width: 44px;
-            height: 44px;
-            object-fit: contain;
-            background: #fff;
-            border-radius: 8px;
-            padding: 3px;
-        }
-
-        .site-nav {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2px;
-            margin-left: auto;             /* push the menu to the right */
-        }
-
-        .site-nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 10px;
-            border-radius: 6px;
-            white-space: nowrap;
-        }
-
-        .site-nav a:hover,
-        .site-nav a.active { background: #ffffff26; }
-
-        .site-nav .btn-login {
-            background: #8fe3c4;
-            color: #06352a;
-            font-weight: 700;
-        }
-
-        /* Menu button for phones (hidden on big screens) */
-        .nav-toggle {
-            display: none;
-            margin-left: auto;
-            background: none;
-            border: 1px solid #ffffff88;
-            color: #fff;
-            font-size: 20px;
-            border-radius: 6px;
-            padding: 4px 12px;
-            cursor: pointer;
-        }
-
-        /* =====================================================
-           PART 3: PAGE CONTENT
-           ===================================================== */
-        .dist-page {
-            width: min(1100px, 94%);
-            margin: 0 auto;
-            padding: 28px 0 60px;
-        }
-
-        /* Dashboard button (right side) */
-        .btn-dash {
-            display: block;
-            width: fit-content;
-            margin: 0 0 28px auto;         /* auto left margin = right side */
-            padding: 8px 22px;
-            background: #bfe6f0;
-            color: #0d0545;
-            border: 1.5px solid #0d0545;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            text-decoration: none;
-            box-shadow: 0 3px 8px #0d054533;
-        }
-        .btn-dash:hover { background: #0d0545; color: #fff; }
-
-        /* 25 district buttons: 5 in each row */
-        .district-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 28px 16px;
-        }
-
-        .district-btn {
-            display: grid;
-            place-items: center;
-            height: 62px;
-            padding: 0 8px;
-            border: 1.5px solid #0d0545;
-            border-radius: 6px;
-            color: #0d0545;
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0 3px 8px #0d054533;
-            transition: background .2s, color .2s, transform .2s;
-        }
-        .district-btn:hover,
-        .district-btn:focus-visible {
-            background: #0d0545;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        /* =====================================================
-           PART 4: SMALLER SCREENS
-           ===================================================== */
-        @media (max-width: 1000px) { .district-grid { grid-template-columns: repeat(4, 1fr); } }
-
-        @media (max-width: 980px) {
-            .site-header { flex-wrap: wrap; }
-            .nav-toggle { display: block; }
-            .site-nav { display: none; width: 100%; flex-direction: column; align-items: stretch; margin-left: 0; }
-            .site-nav.open { display: flex; }
-        }
-
-        @media (max-width: 760px) { .district-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 520px) { .district-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; } }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/districts.css">
+    <script src="js/districts.js" defer></script>
 </head>
 <body>
 
-<!-- =====================================================
-     HEADER
-     ===================================================== -->
-<header class="site-header">
-    <a class="brand" href="index.html">
-        <img class="brand-logo" src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg" alt="Rural Development Bureau logo">
-        <span>RDB-PIFS</span>
-    </a>
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
-    <nav class="site-nav" id="siteNav">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="districts.html" class="active">District Summary</a>
-        <a href="dashboard.html#progress-charts">Progress</a>
-        <a href="dashboard.html#concept-summary">Concept Approval</a>
-        <a href="dashboard.html#implementation-summary">Implementation</a>
-        <a href="all-projects.html">All Projects</a>
-        <a href="add-project.html">+ Add Project</a>
-        <a href="login.html" class="btn-login" id="logoutLink">Logout</a>
-    </nav>
-</header>
+    <!-- HEADER -->
+    <header class="site-header">
 
-<!-- =====================================================
-     PAGE CONTENT
-     ===================================================== -->
-<main class="dist-page">
+        <a class="brand" href="index.html">
+            <img class="brand-logo"
+                 src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg"
+                 alt="Rural Development Bureau logo">
+            <span>RDB-PIFS</span>
+        </a>
 
-    <!-- Dashboard button -->
-    <a class="btn-dash" href="dashboard.html">Dashboard</a>
+        <button class="nav-toggle" id="navToggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false">
+            &#9776;
+        </button>
 
-    <!-- The 25 district buttons are made by the script below -->
-    <div class="district-grid" id="districtGrid"></div>
+        <nav class="site-nav" id="siteNav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="districts.html" class="active">District Summary</a>
+            <a href="dashboard.html#progress-charts">Progress</a>
+            <a href="dashboard.html#concept-summary">Concept Approval</a>
+            <a href="dashboard.html#implementation-summary">Implementation</a>
+            <a href="all-projects.html">All Projects</a>
+            <a href="add-project.html">+ Add Project</a>
+            <a href="login.html" class="btn-login" id="logoutLink">Logout</a>
+        </nav>
 
-</main>
+    </header>
 
-<!-- =====================================================
-     JAVASCRIPT
-     ===================================================== -->
-<script>
-    // ---------- 1. Make the 25 district buttons ----------
-    const DISTRICTS = [
-        "Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo",
-        "Galle", "Gampaha", "Hambantota", "Jaffna", "Kalutara",
-        "Kandy", "Kegalle", "Kilinochchi", "Kurunegala", "Mannar",
-        "Matale", "Matara", "Monaragala", "Mullaitivu", "Nuwara Eliya",
-        "Polonnaruwa", "Puttalam", "Ratnapura", "Trincomalee", "Vavuniya"
-    ];
+    <!-- PAGE CONTENT -->
+    <main class="dist-page">
 
-    const grid = document.getElementById("districtGrid");
+        <!-- Dashboard Button -->
+        <a class="btn-dash" href="dashboard.html">Dashboard</a>
 
-    DISTRICTS.forEach(name => {
-        const link = document.createElement("a");
-        link.className = "district-btn";
-        link.textContent = name;
+        <!-- District Buttons -->
+        <div class="district-grid" id="districtGrid"></div>
 
-        // Click goes to the district page and sends the district name
-        link.href = "district-summary.html?district=" + encodeURIComponent(name);
+    </main>
 
-        grid.appendChild(link);
-    });
-
-    // ---------- 2. Menu button on phones ----------
-    const toggle = document.getElementById("navToggle");
-    const nav = document.getElementById("siteNav");
-
-    toggle.addEventListener("click", () => {
-        const open = nav.classList.toggle("open");
-        toggle.setAttribute("aria-expanded", open);
-    });
-
-    // ---------- 3. Logout: forget who logged in ----------
-    document.getElementById("logoutLink").addEventListener("click", () => {
-        sessionStorage.clear();
-    });
-</script>
+    <!-- External JavaScript -->
+    <script src="js/districts.js"></script>
 
 </body>
 </html>
